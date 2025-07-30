@@ -1,2 +1,86 @@
 console.log("✅ script.js carregado com sucesso!");
-function atualizarContador(){const t=new Date("2007-07-21T10:00:00"),e=new Date;let n=e.getFullYear()-t.getFullYear(),a=e.getMonth()-t.getMonth(),o=e.getDate()-t.getDate(),i=e.getHours()-t.getHours(),l=e.getMinutes()-t.getMinutes(),d=e.getSeconds()-t.getSeconds();var m;d<0&&(d+=60,l--),l<0&&(l+=60,i--),i<0&&(i+=24,o--),o<0&&(m=new Date(e.getFullYear(),e.getMonth(),0).getDate(),o+=m,a--),a<0&&(a+=12,n--),document.getElementById("anos").textContent=n,document.getElementById("meses").textContent=a,document.getElementById("dias").textContent=o,document.getElementById("horas").textContent=i,document.getElementById("minutos").textContent=l,document.getElementById("segundos").textContent=d}function aplicarTemaAutomatico(){var t=(new Date).getHours();6<=t&&t<18?document.body.classList.remove("tema2"):document.body.classList.add("tema2")}setInterval(atualizarContador,1e3),atualizarContador(),window.onload=()=>{aplicarTemaAutomatico()};const imagens=document.querySelectorAll(".fotos img"),lightbox=document.getElementById("lightbox"),imgAmpliada=document.getElementById("imgAmpliada"),fechar=document.querySelector(".fechar");imagens.forEach(t=>{t.addEventListener("click",()=>{lightbox.style.display="block",imgAmpliada.src=t.src})}),fechar.addEventListener("click",()=>{lightbox.style.display="none"}),lightbox.addEventListener("click",t=>{t.target===lightbox&&(lightbox.style.display="none")}),imagens.forEach(t=>{t.addEventListener("click",()=>{imgAmpliada.src=t.src,imgAmpliada.style.animation="none",imgAmpliada.offsetWidth,imgAmpliada.style.animation="zoomIn 0.5s ease",lightbox.style.display="block"})});
+
+window.onload = function () {
+  // Atualizar contador
+  function atualizarContador() {
+    const nascimento = new Date("2007-07-21T10:00:00");
+    const agora = new Date();
+
+    let anos = agora.getFullYear() - nascimento.getFullYear();
+    let meses = agora.getMonth() - nascimento.getMonth();
+    let dias = agora.getDate() - nascimento.getDate();
+    let horas = agora.getHours() - nascimento.getHours();
+    let minutos = agora.getMinutes() - nascimento.getMinutes();
+    let segundos = agora.getSeconds() - nascimento.getSeconds();
+
+    if (segundos < 0) {
+      segundos += 60;
+      minutos--;
+    }
+    if (minutos < 0) {
+      minutos += 60;
+      horas--;
+    }
+    if (horas < 0) {
+      horas += 24;
+      dias--;
+    }
+    if (dias < 0) {
+      const diasMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+      dias += diasMesAnterior;
+      meses--;
+    }
+    if (meses < 0) {
+      meses += 12;
+      anos--;
+    }
+
+    document.getElementById("anos").textContent = anos;
+    document.getElementById("meses").textContent = meses;
+    document.getElementById("dias").textContent = dias;
+    document.getElementById("horas").textContent = horas;
+    document.getElementById("minutos").textContent = minutos;
+    document.getElementById("segundos").textContent = segundos;
+  }
+
+  // Aplicar tema conforme hora
+  function aplicarTemaAutomatico() {
+    const hora = new Date().getHours();
+    if (hora >= 6 && hora < 18) {
+      document.body.classList.remove("tema2");
+    } else {
+      document.body.classList.add("tema2");
+    }
+  }
+
+  // Lightbox
+  const imagens = document.querySelectorAll(".fotos img");
+  const lightbox = document.getElementById("lightbox");
+  const imgAmpliada = document.getElementById("imgAmpliada");
+  const fechar = document.querySelector(".fechar");
+
+  imagens.forEach((img) => {
+    img.addEventListener("click", () => {
+      imgAmpliada.src = img.src;
+      imgAmpliada.style.animation = "none";
+      imgAmpliada.offsetWidth; // força o reset
+      imgAmpliada.style.animation = "zoomIn 0.5s ease";
+      lightbox.style.display = "block";
+    });
+  });
+
+  fechar.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+
+  // Rodar contador
+  setInterval(atualizarContador, 1000);
+  atualizarContador();
+  aplicarTemaAutomatico();
+};
