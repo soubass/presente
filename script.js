@@ -1,7 +1,9 @@
 console.log("✅ script.js carregado com sucesso!");
 
 window.onload = function () {
-  // Atualizar contador
+  // ===============================
+  // CONTADOR DE TEMPO DE VIDA
+  // ===============================
   function atualizarContador() {
     const nascimento = new Date("2007-07-21T10:00:00");
     const agora = new Date();
@@ -43,7 +45,9 @@ window.onload = function () {
     document.getElementById("segundos").textContent = segundos;
   }
 
-  // Aplicar tema conforme hora
+  // ===============================
+  // APLICAR TEMA AUTOMÁTICO PELO HORÁRIO
+  // ===============================
   function aplicarTemaAutomatico() {
     const hora = new Date().getHours();
     if (hora >= 6 && hora < 18) {
@@ -53,7 +57,21 @@ window.onload = function () {
     }
   }
 
-  // Lightbox
+  // ===============================
+  // BOTÃO: MUDAR TEMA MANUALMENTE
+  // ===============================
+  function alternarTema() {
+    document.body.classList.toggle("tema2");
+  }
+
+  const botaoTema = document.getElementById("botaoTema");
+  if (botaoTema) {
+    botaoTema.addEventListener("click", alternarTema);
+  }
+
+  // ===============================
+  // GALERIA DE FOTOS (LIGHTBOX)
+  // ===============================
   const imagens = document.querySelectorAll(".fotos img");
   const lightbox = document.getElementById("lightbox");
   const imgAmpliada = document.getElementById("imgAmpliada");
@@ -63,7 +81,7 @@ window.onload = function () {
     img.addEventListener("click", () => {
       imgAmpliada.src = img.src;
       imgAmpliada.style.animation = "none";
-      imgAmpliada.offsetWidth; // força o reset
+      imgAmpliada.offsetWidth; // força o reset da animação
       imgAmpliada.style.animation = "zoomIn 0.5s ease";
       lightbox.style.display = "block";
     });
@@ -79,7 +97,9 @@ window.onload = function () {
     }
   });
 
-  // Rodar contador
+  // ===============================
+  // INICIAR CONTADOR E TEMA AUTOMÁTICO
+  // ===============================
   setInterval(atualizarContador, 1000);
   atualizarContador();
   aplicarTemaAutomatico();
