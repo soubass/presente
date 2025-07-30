@@ -1,1 +1,168 @@
-<!DOCTYPE html><html lang="pt-BR"><head> <meta charset="UTF-8" /> <title>Feliz Aniversário❤️</title> <link rel="stylesheet" href="style.css" /> <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script></head><body> <!-- Fundo animado com bolhas --> <div class="fundo-animado"> <div class="bolha" style="width: 60px; height: 60px; left: 10%; animation-delay: 0s;"></div> <div class="bolha" style="width: 80px; height: 80px; left: 25%; animation-delay: 5s;"></div> <div class="bolha" style="width: 40px; height: 40px; left: 40%; animation-delay: 2s;"></div> <div class="bolha" style="width: 100px; height: 100px; left: 55%; animation-delay: 1s;"></div> <div class="bolha" style="width: 70px; height: 70px; left: 70%; animation-delay: 4s;"></div> <div class="bolha" style="width: 50px; height: 50px; left: 85%; animation-delay: 3s;"></div> </div> <!-- Cartão animado com mensagem --> <section class="cartao"> <h1>🎉 Feliz Aniversário! Atrasado</h1> <p class="mensagem"> eu quis te entregar algo diferente...<br /> Um site só pra você! 💖<br /> para te lembrar o quanto você é maravilhosa </p> </section> <!-- Seção de fotos --> <!-- Contador de tempo de vida --> <section class="contador"> <div class="linha"> <div class="tempo"> <h1 id="anos">0</h1> <span>Anos</span> </div> <div class="tempo"> <h1 id="meses">0</h1> <span>Meses</span> </div> <div class="tempo"> <h1 id="dias">0</h1> <span>Dias</span> </div> </div> <div class="linha"> <div class="tempo"> <h1 id="horas">0</h1> <span>Horas</span> </div> <div class="tempo"> <h1 id="minutos">0</h1> <span>Minutos</span> </div> <div class="tempo"> <h1 id="segundos">0</h1> <span>Segundos</span> </div> </div> </section> <!-- Player estilo Spotify --> <section class="player"> <img src="capa.jpeg" alt="Capa da música" /> <div class="info"> <h3>Gimme love</h3> <p>Aquela música que você ama</p> <audio id="musica" src="musica.mpeg"></audio> <button onclick="document.getElementById('musica').play()">▶️</button> <button onclick="document.getElementById('musica').pause()">⏸️</button> </div> </section> <section class="galeria"> <h2 id="xuxa">A Aniversáriante</h2> <div class="fotos"> <img src="foto1.jpeg" alt="Foto 1" class="miniatura" /> <img src="foto2.jpeg" alt="Foto 2" class="miniatura" /> <img src="foto3.jpeg" alt="Foto 3" class="miniatura" /> <img src="foto4.jpeg" alt="Foto 3" class="miniatura" /> <img src="foto5.jpeg" alt="Foto 3" class="miniatura" /> <img src="foto6.jpeg" alt="Foto 3" class="miniatura" /> <img src="foto7.jpeg" alt="Foto 3" class="miniatura" /> <img src="foto8.jpeg" alt="Foto 3" class="miniatura" /> </div> <!-- Lightbox --> <div id="lightbox" class="lightbox"> <span class="fechar">&times;</span> <img class="lightbox-conteudo" id="imgAmpliada" /> </div></section> <!-- Seção estrelas e mensagem especial --> <section> <div class="estrelas"> <h2>O céu no dia em que você nasceu</h2> <img src="estrelas.png" alt="Mapa estelar do nascimento" id="imagemEstrela" /> <p id="mensEstrela">As estrelas se alinharam para trazer alguém tão especial ao mundo</p> <p id="mensagemDigitada">Você é uma pessoa incrível e merece o universo ✨</p> </div> </section> <!-- Lista das 10 coisas que você ama --> <section> <div class="coisas"> <h2>10 Coisas Que Eu Amo em Você</h2> <ul id="listaAmor"> <li>Seu sorriso 💖</li> <li>Seu jeito bobo quando tá feliz</li> <li>Como você cuida das pessoas</li> <li>Seu olhar quando finge que tá brava</li> <li>O som da sua risada</li> <li>Seu abraço que acalma 🧸</li> <li>A forma como vê o mundo 🌍</li> <li>Suas conversas aleatórias</li> <li>Seu gosto musical 🎶</li> <li>Você sendo você ❤️</li> </ul> </div> </section> <!-- Botão para mudar o tema --> <section class="botaomudar"> <button id="mudaTema">Mudar Tema</button> </section> <!-- Bolhas de fundo para tema 2 --> <ul class="bolhas"></ul> <!-- Fundo de partículas (para tema 2) --> <section> <div id="particles-js"></div> </section> <!-- Scripts --> <script src="script.js"></script> <script> // Toggle de tema ao clicar no botão const botao = document.getElementById('mudaTema'); botao.addEventListener('click', () => { document.body.classList.toggle('tema2'); }); // Criar bolhas para o tema 2 const bolhas = document.querySelector(".bolhas"); if (bolhas) { for (let i = 0; i < 6; i++) { const li = document.createElement("li"); bolhas.appendChild(li); } } // Definir delay para animação da lista "10 Coisas Que Eu Amo em Você" const itens = document.querySelectorAll('#listaAmor li'); itens.forEach((item, i) => { item.style.setProperty('--i', i); }); </script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Feliz Aniversário❤️</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Fundo animado com bolhas -->
+  <div class="fundo-animado">
+    <div class="bolha" style="width: 60px; height: 60px; left: 10%; animation-delay: 0s;"></div>
+    <div class="bolha" style="width: 80px; height: 80px; left: 25%; animation-delay: 5s;"></div>
+    <div class="bolha" style="width: 40px; height: 40px; left: 40%; animation-delay: 2s;"></div>
+    <div class="bolha" style="width: 100px; height: 100px; left: 55%; animation-delay: 1s;"></div>
+    <div class="bolha" style="width: 70px; height: 70px; left: 70%; animation-delay: 4s;"></div>
+    <div class="bolha" style="width: 50px; height: 50px; left: 85%; animation-delay: 3s;"></div>
+  </div>
+
+  <!-- Cartão animado com mensagem -->
+  <section class="cartao">
+    <h1>🎉 Feliz Aniversário! Atrasado</h1>
+    <p class="mensagem">
+      eu quis te entregar algo diferente...<br />
+      Um site só pra você! 💖<br />
+      para te lembrar o quanto você é maravilhosa
+    </p>
+  </section>
+
+  <!-- Seção de fotos -->
+
+
+  <!-- Contador de tempo de vida -->
+  <section class="contador">
+    <div class="linha">
+      <div class="tempo">
+        <h1 id="anos">0</h1>
+        <span>Anos</span>
+      </div>
+      <div class="tempo">
+        <h1 id="meses">0</h1>
+        <span>Meses</span>
+      </div>
+      <div class="tempo">
+        <h1 id="dias">0</h1>
+        <span>Dias</span>
+      </div>
+    </div>
+    <div class="linha">
+      <div class="tempo">
+        <h1 id="horas">0</h1>
+        <span>Horas</span>
+      </div>
+      <div class="tempo">
+        <h1 id="minutos">0</h1>
+        <span>Minutos</span>
+      </div>
+      <div class="tempo">
+        <h1 id="segundos">0</h1>
+        <span>Segundos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Player estilo Spotify -->
+  <section class="player">
+    <img src="capa.jpeg" alt="Capa da música" />
+    <div class="info">
+      <h3>Gimme love</h3>
+      <p>Aquela música que você ama</p>
+      <audio id="musica" src="musica.mpeg"></audio>
+      <button onclick="document.getElementById('musica').play()">▶️</button>
+      <button onclick="document.getElementById('musica').pause()">⏸️</button>
+    </div>
+  </section>
+   <section class="galeria">
+  <h2 id="xuxa">A Aniversáriante</h2>
+  <div class="fotos">
+    <img src="foto1.jpeg" alt="Foto 1" class="miniatura" />
+    <img src="foto2.jpeg" alt="Foto 2" class="miniatura" />
+    <img src="foto3.jpeg" alt="Foto 3" class="miniatura" />
+    <img src="foto4.jpeg" alt="Foto 3" class="miniatura" />
+    <img src="foto5.jpeg" alt="Foto 3" class="miniatura" />
+    <img src="foto6.jpeg" alt="Foto 3" class="miniatura" />
+    <img src="foto7.jpeg" alt="Foto 3" class="miniatura" />
+    <img src="foto8.jpeg" alt="Foto 3" class="miniatura" />
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="fechar">&times;</span>
+    <img class="lightbox-conteudo" id="imgAmpliada" />
+  </div>
+</section>
+
+
+  <!-- Seção estrelas e mensagem especial -->
+  <section>
+    <div class="estrelas">
+      <h2>O céu no dia em que você nasceu</h2>
+      <img src="estrelas.png" alt="Mapa estelar do nascimento" id="imagemEstrela" />
+      <p id="mensEstrela">As estrelas se alinharam para trazer alguém tão especial ao mundo</p>
+      <p id="mensagemDigitada">Você é uma pessoa incrível e merece o universo ✨</p>
+    </div>
+  </section>
+
+  <!-- Lista das 10 coisas que você ama -->
+  <section>
+    <div class="coisas">
+      <h2>10 Coisas Que Eu Amo em Você</h2>
+      <ul id="listaAmor">
+        <li>Seu sorriso 💖</li>
+        <li>Seu jeito bobo quando tá feliz</li>
+        <li>Como você cuida das pessoas</li>
+        <li>Seu olhar quando finge que tá brava</li>
+        <li>O som da sua risada</li>
+        <li>Seu abraço que acalma 🧸</li>
+        <li>A forma como vê o mundo 🌍</li>
+        <li>Suas conversas aleatórias</li>
+        <li>Seu gosto musical 🎶</li>
+        <li>Você sendo você ❤️</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Botão para mudar o tema -->
+  <section class="botaomudar">
+    <button id="mudaTema">Mudar Tema</button>
+  </section>
+
+  <!-- Bolhas de fundo para tema 2 -->
+  <ul class="bolhas"></ul>
+
+  <!-- Fundo de partículas (para tema 2) -->
+  <section>
+    <div id="particles-js"></div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+
+  <script>
+    // Toggle de tema ao clicar no botão
+    const botao = document.getElementById('mudaTema');
+    botao.addEventListener('click', () => {
+      document.body.classList.toggle('tema2');
+    });
+
+    // Criar bolhas para o tema 2
+    const bolhas = document.querySelector(".bolhas");
+    if (bolhas) {
+      for (let i = 0; i < 6; i++) {
+        const li = document.createElement("li");
+        bolhas.appendChild(li);
+      }
+    }
+
+    // Definir delay para animação da lista "10 Coisas Que Eu Amo em Você"
+    const itens = document.querySelectorAll('#listaAmor li');
+    itens.forEach((item, i) => {
+      item.style.setProperty('--i', i);
+    });
+  </script>
+
+</body>
+</html>
